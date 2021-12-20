@@ -235,7 +235,7 @@ class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collecti
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getIterator()
+	public function getIterator(): \Traversable
 	{
 		return $this->inner->getIterator();
 	}
@@ -243,7 +243,7 @@ class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collecti
 	/**
 	 * {@inheritdoc}
 	 */
-	public function offsetExists($offset)
+	public function offsetExists($offset): bool
 	{
 		return $this->inner->offsetExists($offset);
 	}
@@ -251,7 +251,7 @@ class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collecti
 	/**
 	 * {@inheritdoc}
 	 */
-	public function offsetGet($offset)
+	public function offsetGet(mixed $offset): mixed
 	{
 		return $this->inner->offsetGet($offset);
 	}
@@ -261,7 +261,7 @@ class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collecti
 	 *
 	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
-	public function offsetSet($offset, $value)
+	public function offsetSet(mixed $offset, mixed $value): void
 	{
 		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('set an element in');
 	}
@@ -271,7 +271,7 @@ class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collecti
 	 *
 	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
-	public function offsetUnset($offset)
+	public function offsetUnset(mixed $offset): void
 	{
 		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('remove an element from');
 	}
@@ -279,7 +279,7 @@ class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collecti
 	/**
 	 * {@inheritdoc}
 	 */
-	public function count()
+	public function count(): int
 	{
 		return $this->inner->count();
 	}
