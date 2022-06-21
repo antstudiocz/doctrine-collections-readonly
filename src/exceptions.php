@@ -15,7 +15,7 @@ interface Exception
 
 }
 
-class ReadOnlyCollectionException extends \LogicException implements \Kdyby\Doctrine\Collections\Readonly\Exception
+final class ReadOnlyCollectionException extends \LogicException implements \Kdyby\Doctrine\Collections\Readonly\Exception
 {
 
 	/**
